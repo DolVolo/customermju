@@ -1,60 +1,523 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Document</title>
+    <title>ร้านค้าขายของที่ระลึก 30 ปี สาขาวิชาวิทยาการคอมพิวเตอร์ - มหาวิทยาลัยแม่โจ้</title>
+    <link rel="icon" type="image/png" href="MJU_LOGO.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+    </style>
 </head>
-<body>
-    ร้านค้าขายของที่ระลึก สาขาวิชาวิทยาการคอมพิวเตอร์
+<body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Navbar from example.html -->
+    <header class="bg-green-800 text-white shadow-lg">
+        <nav class="container mx-auto px-2 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <img src="https://upload.wikimedia.org/wikipedia/th/thumb/b/b7/MJU_LOGO.svg/1200px-MJU_LOGO.svg.png" 
+                         alt="Maejo University" 
+                         class="h-12" />
+                    <div class="hidden md:flex flex-col">
+                        <span class="font-bold text-lg">ร้านค้าขายของที่ระลึก 30 ปี</span>
+                        <span class="text-sm">สาขาวิชาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้</span>
+                    </div>
+                </div>
 
-    Admin สำหรับจัดเตรียมสินค้า
+                <!-- Desktop Navigation - Icons Only -->
+                <div class="hidden lg:flex items-center space-x-2">
+                    <a href="#hero" class="nav-link p-3 rounded-full hover:bg-green-700 transition" title="หน้าหลัก">
+                        <i data-lucide="home" size="20"></i>
+                    </a>
+                    <a href="#products" class="nav-link p-3 rounded-full hover:bg-green-700 transition" title="สินค้า">
+                        <i data-lucide="shopping-bag" size="20"></i>
+                    </a>
+                    <a href="#order" class="nav-link p-3 rounded-full hover:bg-green-700 transition" title="สั่งซื้อ">
+                        <i data-lucide="shopping-cart" size="20"></i>
+                    </a>
+                    <a href="#contact" class="nav-link p-3 rounded-full hover:bg-green-700 transition" title="ติดต่อเรา">
+                        <i data-lucide="phone" size="20"></i>
+                    </a>
+                </div>
 
-    <form action="" method="post">   
-<h1>  เสื้อ</h1>
-<label for ="productsize" >ขนาด</label>
-     <!--ขนาด xs, s, m, l, xl, xxl, 3xl-->
-     <select name="productsize" id="productsize"> 
-      <option value="">--กรุณาเลือกขนาด--</option>
-      <option value="xs"> XS</option>
-      <option value="s" > S</option>
-      <option value="m" selected> M</option>
-      <option value="l"> L</option>
-      <option value="xl"> XL</option>
-      <option value="xxl"> XXL</option>
-      <option value="3xl"> 3XL</option>
-     <input type="text">
-     <label for="prdcolor">สี</label>
-     
-     <input type="radio" name="prdcolor" value="white">ขาว
-     <input type="radio" name="prdcolor" value="black">ดำ
-     <input type="radio" name="prdcolor" value="blue">น้ำเงิน
-     <input type="radio" name="prdcolor" value="gray">เทา
-  
-     <label for= "price">  ราคา</label>
-     <input type="number" name="price" id="price" min="0" max="999999" step="10.00" value="0.00" >
+                <!-- Mobile menu button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-md text-white hover:bg-green-700 focus:outline-none">
+                    <i id="menuIcon" data-lucide="menu" size="24"></i>
+                    <i id="closeIcon" data-lucide="x" size="24" class="hidden"></i>
+                </button>
+            </div>
 
-      จำนวนสินค้า
-     <input type="number" name="quantity" id="quantity" >
+            <!-- Mobile Navigation - Animated Flex Column -->
+            <div id="mobileMenu" class="lg:hidden overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+                <div class="border-t border-green-700 mt-2 pt-3 pb-2">
+                    <div class="flex flex-col space-y-2 px-4">
+                        <a href="#hero" class="mobile-nav-link flex items-center px-3 py-2 text-sm rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-105">
+                            <i data-lucide="home" size="16" class="mr-2"></i>
+                            หน้าหลัก
+                        </a>
+                        <a href="#products" class="mobile-nav-link flex items-center px-3 py-2 text-sm rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-105">
+                            <i data-lucide="shopping-bag" size="16" class="mr-2"></i>
+                            สินค้า
+                        </a>
+                        <a href="#order" class="mobile-nav-link flex items-center px-3 py-2 text-sm rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-105">
+                            <i data-lucide="shopping-cart" size="16" class="mr-2"></i>
+                            สั่งซื้อ
+                        </a>
+                        <a href="#contact" class="mobile-nav-link flex items-center px-3 py-2 text-sm rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-105">
+                            <i data-lucide="phone" size="16" class="mr-2"></i>
+                            ติดต่อเรา
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-     ชื่อรุ่น
+    <!-- Hero Section -->
+    <section id="hero" class="bg-gradient-to-r from-green-800 to-green-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">ของที่ระลึก 30 ปี</h1>
+            <p class="text-xl md:text-2xl mb-6">สาขาวิชาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้</p>
+            <p class="text-lg mb-8">เลือกซื้อของที่ระลึกคุณภาพดี เพื่อเป็นที่ระลึกในโอกาสพิเศษนี้</p>
+            <a href="#products" class="bg-white text-green-800 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition inline-flex items-center">
+                <i data-lucide="shopping-cart" size="20" class="mr-2"></i>
+                เลือกซื้อสินค้า
+            </a>
+        </div>
+    </section>
 
-     <input type="text" name="modelname" id="modelname" placeholder="ชื่อรุ่น">
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <form action="" method="post" class="space-y-8">
+            <!-- Product Selection Section (First Priority) -->
+            <section id="products" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-green-800 text-white p-6">
+                    <h2 class="text-2xl font-bold flex items-center">
+                        <i data-lucide="shopping-bag" size="28" class="mr-3"></i>
+                        เลือกรายการสินค้า
+                    </h2>
+                    <p class="mt-2 opacity-90">เลือกสินค้าที่ต้องการและระบุรายละเอียด</p>
+                </div>
+                
+                <div class="p-6 space-y-8">
+                    <!-- เสื้อ -->
+                    <div class="product-card bg-blue-50 p-6 rounded-lg border border-blue-200">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="shirt" size="24" class="text-green-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold">เสื้อ</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div>
+                                <label for="shirt-size" class="block text-sm font-medium text-gray-700 mb-2">ขนาด</label>
+                                <select id="shirt-size" name="shirt-size" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                                    <option value="">เลือกขนาด</option>
+                                    <option value="xs">XS</option>
+                                    <option value="s">S</option>
+                                    <option value="m">M</option>
+                                    <option value="l">L</option>
+                                    <option value="xl">XL</option>
+                                    <option value="xxl">XXL</option>
+                                    <option value="3xl">3XL</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">สี</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="radio" name="shirt-color" value="white" class="text-green-600 focus:ring-green-500">
+                                        <span class="ml-2">ขาว</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="shirt-color" value="black" class="text-green-600 focus:ring-green-500">
+                                        <span class="ml-2">ดำ</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="shirt-color" value="blue" class="text-green-600 focus:ring-green-500">
+                                        <span class="ml-2">น้ำเงิน</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="shirt-color" value="gray" class="text-green-600 focus:ring-green-500">
+                                        <span class="ml-2">เทา</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="shirt-quantity" class="block text-sm font-medium text-gray-700 mb-2">จำนวน</label>
+                                <input type="number" id="shirt-quantity" name="shirt-quantity" min="0" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                            </div>
+                            <div class="flex items-end">
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600">ราคา</p>
+                                    <p class="text-lg font-bold text-green-600">350 บาท</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-      รายละเอียด
-     <textarea name="description" id="description" rows="4" cols="50" placeholder="รายละเอียดสินค้า" maxlength="5000"></textarea>
-    
-     วันที่ขาย ตั้งแต่วันที่-สิ้นสุด
-     <input type="date" name="startdate" id="startdate">
-     <input type="date" name="enddate" id="enddate" min="2023-10-01" max="2024-12-31">
-  
-     รูปภาพสินค้า
+                    <!-- กระเป๋า -->
+                    <div class="product-card bg-gray-50 p-6 rounded-lg border border-gray-200">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="briefcase" size="24" class="text-green-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold">กระเป๋า</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div>
+                                <label for="bag-type" class="block text-sm font-medium text-gray-700 mb-2">ประเภท</label>
+                                <select id="bag-type" name="bag-type" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                                    <option value="">เลือกประเภท</option>
+                                    <option value="tote">กระเป๋าผ้า</option>
+                                    <option value="backpack">เป้สะพายหลัง</option>
+                                    <option value="laptop">กระเป๋าใส่แล็ปท็อป</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="bag-color" class="block text-sm font-medium text-gray-700 mb-2">สี</label>
+                                <input type="text" id="bag-color" name="bag-color" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500" placeholder="ระบุสี">
+                            </div>
+                            <div>
+                                <label for="bag-quantity" class="block text-sm font-medium text-gray-700 mb-2">จำนวน</label>
+                                <input type="number" id="bag-quantity" name="bag-quantity" min="0" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                            </div>
+                            <div class="flex items-end">
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600">ราคา</p>
+                                    <p class="text-lg font-bold text-green-600">250 บาท</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-     <input type="file" name="productimage" id="productimage" accept="image/*">
-     <input type="submit" value="บันทึก">
-     <input type ="reset" value="ล้างข้อมูล">
-    </form>
-        
+                    <!-- แก้ว -->
+                    <div class="product-card bg-gray-50 p-6 rounded-lg border border-gray-200">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="coffee" size="24" class="text-green-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold">แก้ว</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div>
+                                <label for="cup-type" class="block text-sm font-medium text-gray-700 mb-2">ประเภท</label>
+                                <select id="cup-type" name="cup-type" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                                    <option value="">เลือกประเภท</option>
+                                    <option value="mug">แก้วมัก</option>
+                                    <option value="tumbler">แก้วทัมเบลอร์</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="cup-material" class="block text-sm font-medium text-gray-700 mb-2">วัสดุ</label>
+                                <select id="cup-material" name="cup-material" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                                    <option value="">เลือกวัสดุ</option>
+                                    <option value="ceramic">เซรามิก</option>
+                                    <option value="stainless">สแตนเลส</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="cup-quantity" class="block text-sm font-medium text-gray-700 mb-2">จำนวน</label>
+                                <input type="number" id="cup-quantity" name="cup-quantity" min="0" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                            </div>
+                            <div class="flex items-end">
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600">ราคา</p>
+                                    <p class="text-lg font-bold text-green-600">180 บาท</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- สินค้าอื่นๆ -->
+                    <div class="product-card bg-gray-50 p-6 rounded-lg border border-gray-200">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="gift" size="24" class="text-green-600 mr-3"></i>
+                            <h3 class="text-xl font-semibold">สินค้าอื่นๆ</h3>
+                            <span class="ml-2 text-sm text-gray-600">(หมวก, ร่ม, เข็มกลัด, สมุด, ปากกา)</span>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label for="other-type" class="block text-sm font-medium text-gray-700 mb-2">ประเภท</label>
+                                <select id="other-type" name="other-type" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                                    <option value="">เลือกประเภท</option>
+                                    <option value="hat">หมวก</option>
+                                    <option value="umbrella">ร่ม</option>
+                                    <option value="pin">เข็มกลัด</option>
+                                    <option value="notebook">สมุด</option>
+                                    <option value="pen">ปากกา</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="other-quantity" class="block text-sm font-medium text-gray-700 mb-2">จำนวน</label>
+                                <input type="number" id="other-quantity" name="other-quantity" min="0" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                            </div>
+                            <div class="flex items-end">
+                                <div class="text-center">
+                                    <p class="text-sm text-gray-600">ราคา</p>
+                                    <p class="text-lg font-bold text-green-600">50-150 บาท</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <label for="other-details" class="block text-sm font-medium text-gray-700 mb-2">รายละเอียดเพิ่มเติม</label>
+                            <textarea id="other-details" name="other-details" rows="3" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500" placeholder="ระบุรายละเอียด เช่น สี, ขนาด, หรือความต้องการพิเศษ"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Customer Details Section -->
+            <section id="order" class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-blue-600 text-white p-6">
+                    <h2 class="text-2xl font-bold flex items-center">
+                        <i data-lucide="user" size="28" class="mr-3"></i>
+                        ข้อมูลลูกค้า
+                    </h2>
+                    <p class="mt-2 opacity-90">กรุณากรอกข้อมูลสำหรับการจัดส่งและติดต่อ</p>
+                </div>
+                
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="first-name" class="block text-sm font-medium text-gray-700 mb-2">ชื่อ *</label>
+                            <input type="text" id="first-name" name="first-name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="ชื่อ">
+                        </div>
+                        <div>
+                            <label for="last-name" class="block text-sm font-medium text-gray-700 mb-2">นามสกุล *</label>
+                            <input type="text" id="last-name" name="last-name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="นามสกุล">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="address" class="block text-sm font-medium text-gray-700 mb-2">ที่อยู่ *</label>
+                            <textarea id="address" name="address" rows="3" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="ที่อยู่สำหรับจัดส่ง"></textarea>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">เบอร์โทร *</label>
+                            <input type="tel" id="phone" name="phone" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="0XX-XXX-XXXX">
+                        </div>
+                        <div>
+                            <label for="purchase-date" class="block text-sm font-medium text-gray-700 mb-2">วันที่ซื้อ *</label>
+                            <input type="date" id="purchase-date" name="purchase-date" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Delivery and Payment Section -->
+            <section class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="bg-purple-600 text-white p-6">
+                    <h2 class="text-2xl font-bold flex items-center">
+                        <i data-lucide="truck" size="28" class="mr-3"></i>
+                        การจัดส่งและชำระเงิน
+                    </h2>
+                    <p class="mt-2 opacity-90">เลือกวิธีการรับสินค้าและชำระเงิน</p>
+                </div>
+                
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 flex items-center">
+                                <i data-lucide="package" size="20" class="mr-2"></i>
+                                วิธีการรับสินค้า
+                            </h3>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="radio" name="delivery" value="pickup" class="text-purple-600 focus:ring-purple-500">
+                                    <div class="ml-3">
+                                        <div class="font-medium">รับเอง</div>
+                                        <div class="text-sm text-gray-600">รับที่สาขาวิชาวิทยาการคอมพิวเตอร์</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="radio" name="delivery" value="shipping" class="text-purple-600 focus:ring-purple-500">
+                                    <div class="ml-3">
+                                        <div class="font-medium">จัดส่ง</div>
+                                        <div class="text-sm text-gray-600">จัดส่งตามที่อยู่ที่ระบุ (ค่าจัดส่ง 50 บาท)</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold mb-4 flex items-center">
+                                <i data-lucide="credit-card" size="20" class="mr-2"></i>
+                                ช่องทางชำระเงิน
+                            </h3>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="radio" name="payment" value="bank" class="text-purple-600 focus:ring-purple-500">
+                                    <div class="ml-3">
+                                        <div class="font-medium">โอนผ่านธนาคาร</div>
+                                        <div class="text-sm text-gray-600">กรุงไทย XXX-X-XXXXX-X</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="radio" name="payment" value="promptpay" class="text-purple-600 focus:ring-purple-500">
+                                    <div class="ml-3">
+                                        <div class="font-medium">PromptPay</div>
+                                        <div class="text-sm text-gray-600">0XX-XXX-XXXX</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                    <input type="radio" name="payment" value="cash" class="text-purple-600 focus:ring-purple-500">
+                                    <div class="ml-3">
+                                        <div class="font-medium">เงินสด</div>
+                                        <div class="text-sm text-gray-600">สำหรับการรับเองเท่านั้น</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h3 class="text-lg font-semibold mb-4 flex items-center">
+                            <i data-lucide="image" size="20" class="mr-2"></i>
+                            รูปภาพสลิปการชำระเงิน
+                        </h3>
+                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-purple-400 transition-colors">
+                            <input type="file" id="slip" name="slip" accept="image/*" class="hidden">
+                            <label for="slip" class="cursor-pointer">
+                                <i data-lucide="upload" size="48" class="mx-auto text-gray-400 mb-4"></i>
+                                <div class="text-lg font-medium text-gray-700">คลิกเพื่ออัพโหลดสลิป</div>
+                                <div class="text-sm text-gray-500 mt-2">รองรับไฟล์ JPG, PNG ขนาดไม่เกิน 5MB</div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Submit Section -->
+            <div class="text-center bg-white p-8 rounded-lg shadow-lg">
+                <div class="max-w-md mx-auto">
+                    <h3 class="text-xl font-semibold mb-4">พร้อมส่งคำสั่งซื้อแล้วใช่หรือไม่?</h3>
+                    <p class="text-gray-600 mb-6">กรุณาตรวจสอบข้อมูลให้ถูกต้องก่อนส่งคำสั่งซื้อ</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button type="submit" class="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition flex items-center justify-center">
+                            <i data-lucide="check" size="20" class="mr-2"></i>
+                            ส่งคำสั่งซื้อ
+                        </button>
+                        <button type="reset" class="bg-gray-300 text-gray-800 px-8 py-3 rounded-lg font-bold hover:bg-gray-400 transition flex items-center justify-center">
+                            <i data-lucide="refresh-cw" size="20" class="mr-2"></i>
+                            ล้างข้อมูล
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- Footer from example.html -->
+    <footer class="bg-green-800 text-white py-6 mt-auto">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="font-bold text-lg mb-2">มหาวิทยาลัยแม่โจ้</h3>
+                    <p class="text-sm">
+                        63 หมู่ 4 ตำบลหนองหาร อำเภอสันทราย จังหวัดเชียงใหม่ 50290
+                    </p>
+                    <p class="text-sm">โทรศัพท์: 053-873000</p>
+                </div>
+                <div class="mb-4 md:mb-0" id="contact">
+                    <h3 class="font-bold text-lg mb-2">ติดต่อเรา</h3>
+                    <p class="text-sm">สาขาวิชาวิทยาการคอมพิวเตอร์</p>
+                    <p class="text-sm">โทรศัพท์: 053-873460</p>
+                    <p class="text-sm">อีเมล: cs@mju.ac.th</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-2">ช่วยเหลือ</h3>
+                    <ul class="text-sm">
+                        <li>
+                            <a href="#" class="hover:underline">
+                                คำถามที่พบบ่อย
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:underline">
+                                คู่มือการสั่งซื้อ
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:underline">
+                                แจ้งปัญหาการสั่งซื้อ
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-green-700 text-center text-sm">
+                <p>
+                    &copy; 2024 ร้านค้าขายของที่ระลึก 30 ปี สาขาวิชาวิทยาการคอมพิวเตอร์ มหาวิทยาลัยแม่โจ้ สงวนลิขสิทธิ์
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality with smooth animations
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
+        let isMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+
+            if (isMenuOpen) {
+                // Open menu with animation
+                mobileMenu.style.maxHeight = '200px';
+                mobileMenu.classList.remove('opacity-0');
+                mobileMenu.classList.add('opacity-100');
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                // Close menu with animation
+                mobileMenu.style.maxHeight = '0px';
+                mobileMenu.classList.remove('opacity-100');
+                mobileMenu.classList.add('opacity-0');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        function closeMobileMenu() {
+            if (isMenuOpen) {
+                mobileMenu.style.maxHeight = '0px';
+                mobileMenu.classList.remove('opacity-100');
+                mobileMenu.classList.add('opacity-0');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                isMenuOpen = false;
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                closeMobileMenu();
+            });
+        });
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Set today's date as default
+        document.getElementById('purchase-date').valueAsDate = new Date();
+    </script>
 </body>
 </html>
