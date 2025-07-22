@@ -1,0 +1,2 @@
+cd /Users/macbookpro14/Desktop/projectweb/customer
+git push -u origin main

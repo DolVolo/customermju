@@ -1,309 +1,60 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สั่งซื้อของที่ระลึก 30ปี สาขาวิชาวิทยาการคอมพิวเตอร์</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="customer.css">
+    <title>Document</title>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500">
-    <div class="container mx-auto px-4 py-8 max-w-4xl">
-        <!-- Header -->
-        <header class="bg-white/95 backdrop-blur-lg rounded-2xl p-8 mb-8 shadow-2xl">
-            <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-                    🎓 ของที่ระลึก 30ปี
-                </h1>
-                <h2 class="text-xl md:text-2xl text-gray-600 font-medium">
-                    สาขาวิชาวิทยาการคอมพิวเตอร์
-                </h2>
-                <div class="mt-4 h-1 w-32 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
-            </div>
-        </header>
+<body>
+    ร้านค้าขายของที่ระลึก สาขาวิชาวิทยาการคอมพิวเตอร์
 
-        <!-- Main Form -->
-        <main class="bg-white/95 backdrop-blur-lg rounded-2xl p-8 shadow-2xl">
-            <form class="space-y-8">
-                <!-- ข้อมูลลูกค้า -->
-                <section class="border-l-4 border-blue-500 pl-6 bg-blue-50/50 p-6 rounded-r-xl">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                        👤 ข้อมูลลูกค้า
-                    </h3>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="space-y-2">
-                            <label for="firstName" class="block text-sm font-semibold text-gray-700">
-                                ชื่อ *
-                            </label>
-                            <input 
-                                type="text" 
-                                id="firstName" 
-                                name="firstName" 
-                                required
-                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 bg-white"
-                                placeholder="กรอกชื่อ"
-                            >
-                        </div>
-                        
-                        <div class="space-y-2">
-                            <label for="lastName" class="block text-sm font-semibold text-gray-700">
-                                นามสกุล *
-                            </label>
-                            <input 
-                                type="text" 
-                                id="lastName" 
-                                name="lastName" 
-                                required
-                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 bg-white"
-                                placeholder="กรอกนามสกุล"
-                            >
-                        </div>
-                        
-                        <div class="space-y-2 md:col-span-2">
-                            <label for="address" class="block text-sm font-semibold text-gray-700">
-                                ที่อยู่ *
-                            </label>
-                            <textarea 
-                                id="address" 
-                                name="address" 
-                                rows="3" 
-                                required
-                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 bg-white resize-none"
-                                placeholder="กรอกที่อยู่สำหรับจัดส่ง"
-                            ></textarea>
-                        </div>
-                        
-                        <div class="space-y-2">
-                            <label for="phone" class="block text-sm font-semibold text-gray-700">
-                                เบอร์โทรศัพท์ *
-                            </label>
-                            <input 
-                                type="tel" 
-                                id="phone" 
-                                name="phone" 
-                                required
-                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 bg-white"
-                                placeholder="0XX-XXX-XXXX"
-                            >
-                        </div>
-                        
-                        <div class="space-y-2">
-                            <label for="purchaseDate" class="block text-sm font-semibold text-gray-700">
-                                วันที่ซื้อ *
-                            </label>
-                            <input 
-                                type="date" 
-                                id="purchaseDate" 
-                                name="purchaseDate" 
-                                required
-                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 bg-white"
-                            >
-                        </div>
-                    </div>
-                </section>
+    Admin สำหรับจัดเตรียมสินค้า
 
-                <!-- เลือกสินค้า -->
-                <section class="border-l-4 border-green-500 pl-6 bg-green-50/50 p-6 rounded-r-xl">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                        🛍️ เลือกรายการสินค้า
-                    </h3>
-                    
-                    <!-- เสื้อ -->
-                    <div class="mb-8 p-6 bg-white rounded-xl shadow-md">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            👕 เสื้อ
-                        </h4>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">สี</label>
-                                <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 bg-white">
-                                    <option value="">เลือกสี</option>
-                                    <option value="white">ขาว</option>
-                                    <option value="black">ดำ</option>
-                                    <option value="navy">กรมท่า</option>
-                                    <option value="red">แดง</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">ขนาด</label>
-                                <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 bg-white">
-                                    <option value="">เลือกขนาด</option>
-                                    <option value="S">S</option>
-                                    <option value="M">M</option>
-                                    <option value="L">L</option>
-                                    <option value="XL">XL</option>
-                                    <option value="XXL">XXL</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">จำนวน</label>
-                                <input type="number" min="0" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 bg-white" placeholder="0">
-                            </div>
-                        </div>
-                    </div>
+    <form action="" method="post">   
+<h1>  เสื้อ</h1>
+<label for ="productsize" >ขนาด</label>
+     <!--ขนาด xs, s, m, l, xl, xxl, 3xl-->
+     <select name="productsize" id="productsize"> 
+      <option value="">--กรุณาเลือกขนาด--</option>
+      <option value="xs"> XS</option>
+      <option value="s" > S</option>
+      <option value="m" selected> M</option>
+      <option value="l"> L</option>
+      <option value="xl"> XL</option>
+      <option value="xxl"> XXL</option>
+      <option value="3xl"> 3XL</option>
+     <input type="text">
+     <label for="prdcolor">สี</label>
+     
+     <input type="radio" name="prdcolor" value="white">ขาว
+     <input type="radio" name="prdcolor" value="black">ดำ
+     <input type="radio" name="prdcolor" value="blue">น้ำเงิน
+     <input type="radio" name="prdcolor" value="gray">เทา
+  
+     <label for= "price">  ราคา</label>
+     <input type="number" name="price" id="price" min="0" max="999999" step="10.00" value="0.00" >
 
-                    <!-- กระเป๋า -->
-                    <div class="mb-8 p-6 bg-white rounded-xl shadow-md">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            👜 กระเป๋า
-                        </h4>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">ประเภท</label>
-                                <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 bg-white">
-                                    <option value="">เลือกประเภท</option>
-                                    <option value="tote">กระเป๋าผ้า</option>
-                                    <option value="backpack">เป้สะพายหลัง</option>
-                                    <option value="laptop">กระเป๋าใส่โน๊ตบุ๊ค</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">สี</label>
-                                <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 bg-white" placeholder="ระบุสี">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">จำนวน</label>
-                                <input type="number" min="0" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 bg-white" placeholder="0">
-                            </div>
-                        </div>
-                    </div>
+      จำนวนสินค้า
+     <input type="number" name="quantity" id="quantity" >
 
-                    <!-- แก้ว -->
-                    <div class="mb-8 p-6 bg-white rounded-xl shadow-md">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            ☕ แก้ว
-                        </h4>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">ประเภท</label>
-                                <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 bg-white">
-                                    <option value="">เลือกประเภท</option>
-                                    <option value="mug">แก้วกาแฟ</option>
-                                    <option value="tumbler">แก้วเก็บความเย็น</option>
-                                    <option value="thermal">แก้วเก็บความร้อน</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">วัสดุ</label>
-                                <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 bg-white">
-                                    <option value="">เลือกวัสดุ</option>
-                                    <option value="ceramic">เซรามิค</option>
-                                    <option value="stainless">สแตนเลส</option>
-                                    <option value="glass">แก้ว</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">จำนวน</label>
-                                <input type="number" min="0" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 bg-white" placeholder="0">
-                            </div>
-                        </div>
-                    </div>
+     ชื่อรุ่น
 
-                    <!-- อุปกรณ์อื่นๆ -->
-                    <div class="mb-8 p-6 bg-white rounded-xl shadow-md">
-                        <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
-                            🎁 อุปกรณ���อื่นๆ
-                        </h4>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">ประเภท</label>
-                                <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 bg-white">
-                                    <option value="">เลือกประเภท</option>
-                                    <option value="hat">หมวก</option>
-                                    <option value="umbrella">ร่ม</option>
-                                    <option value="pin">เข็มกลัด</option>
-                                    <option value="notebook">สมุด</option>
-                                    <option value="pen">ปากกา</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">จำนวน</label>
-                                <input type="number" min="0" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 bg-white" placeholder="0">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">รายละเอียดเพิ่มเติม</label>
-                            <textarea rows="2" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 bg-white resize-none" placeholder="ระบุรายละเอียดสินค้าที่ต้องการ"></textarea>
-                        </div>
-                    </div>
-                </section>
+     <input type="text" name="modelname" id="modelname" placeholder="ชื่อรุ่น">
 
-                <!-- การชำระเงินและจัดส่ง -->
-                <section class="border-l-4 border-purple-500 pl-6 bg-purple-50/50 p-6 rounded-r-xl">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                        💳 การชำระเงินและจัดส่ง
-                    </h3>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- ช่องทางชำระเงิน -->
-                        <div class="space-y-4">
-                            <h4 class="text-lg font-semibold text-gray-800">ช่องทางชำระเงิน</h4>
-                            <div class="space-y-3">
-                                <label class="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                    <input type="radio" name="payment" value="bank" class="text-purple-500 focus:ring-purple-500">
-                                    <span class="text-gray-700">🏦 โอนเงินผ่านธนาคาร</span>
-                                </label>
-                                <label class="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                    <input type="radio" name="payment" value="promptpay" class="text-purple-500 focus:ring-purple-500">
-                                    <span class="text-gray-700">📱 PromptPay</span>
-                                </label>
-                                <label class="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                    <input type="radio" name="payment" value="cash" class="text-purple-500 focus:ring-purple-500">
-                                    <span class="text-gray-700">💵 เงินสด (รับเอง)</span>
-                                </label>
-                            </div>
-                        </div>
+      รายละเอียด
+     <textarea name="description" id="description" rows="4" cols="50" placeholder="รายละเอียดสินค้า" maxlength="5000"></textarea>
+    
+     วันที่ขาย ตั้งแต่วันที่-สิ้นสุด
+     <input type="date" name="startdate" id="startdate">
+     <input type="date" name="enddate" id="enddate" min="2023-10-01" max="2024-12-31">
+  
+     รูปภาพสินค้า
 
-                        <!-- วิธีการรับสินค้า -->
-                        <div class="space-y-4">
-                            <h4 class="text-lg font-semibold text-gray-800">วิธีการรับสินค้า</h4>
-                            <div class="space-y-3">
-                                <label class="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                    <input type="radio" name="delivery" value="pickup" class="text-purple-500 focus:ring-purple-500">
-                                    <span class="text-gray-700">🏢 รับเองที่สาขา</span>
-                                </label>
-                                <label class="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                    <input type="radio" name="delivery" value="shipping" class="text-purple-500 focus:ring-purple-500">
-                                    <span class="text-gray-700">📦 จัดส่งท��งไปรษณีย์</span>
-                                </label>
-                                <label class="flex items-center space-x-3 p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
-                                    <input type="radio" name="delivery" value="courier" class="text-purple-500 focus:ring-purple-500">
-                                    <span class="text-gray-700">🚚 จัดส่งด่วน</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- อัพโหลดสลิป -->
-                    <div class="mt-8 space-y-4">
-                        <h4 class="text-lg font-semibold text-gray-800">📄 อัพโหลดหลักฐานการชำระเงิน</h4>
-                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-purple-500 transition-colors duration-300">
-                            <input type="file" id="paymentSlip" name="paymentSlip" accept="image/*" class="hidden">
-                            <label for="paymentSlip" class="cursor-pointer">
-                                <div class="space-y-2">
-                                    <div class="text-4xl">📸</div>
-                                    <div class="text-gray-600">คลิกเพื่อเลือกไฟล์รูปภาพ</div>
-                                    <div class="text-sm text-gray-500">รองรับไฟล์ JPG, PNG, GIF</div>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ปุ่มส่งข้อมูล -->
-                <div class="text-center pt-8">
-                    <button type="submit" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-4 px-12 rounded-full text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-                        🛒 ส่งคำสั่งซื้อ
-                    </button>
-                </div>
-            </form>
-        </main>
-
-        <!-- Footer -->
-        <footer class="text-center mt-8 text-white/80">
-            <p>&copy; 2024 สาขาวิชาวิทยาการคอมพิวเตอร์ - ของที่ระลึก 30ปี</p>
-        </footer>
-    </div>
+     <input type="file" name="productimage" id="productimage" accept="image/*">
+     <input type="submit" value="บันทึก">
+     <input type ="reset" value="ล้างข้อมูล">
+    </form>
+        
 </body>
 </html>
