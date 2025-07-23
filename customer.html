@@ -1201,18 +1201,98 @@
             userMessage.textContent = message;
             messagesContainer.appendChild(userMessage);
             
-            // Auto-reply from admin
-            setTimeout(() => {
-                const adminMessage = document.createElement('div');
-                adminMessage.className = 'message admin-message';
-                adminMessage.textContent = 'ขอบคุณสำหรับข้อความครับ เราจะตอบกลับโดยเร็วที่สุด!';
-                messagesContainer.appendChild(adminMessage);
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            }, 1000);
+            // Send message to admin
+            const customerId = getOrCreateCustomerId();
+            const customerName = getCustomerName();
+            
+            // Save message for admin
+            const newMessages = JSON.parse(localStorage.getItem('newCustomerMessages') || '[]');
+            newMessages.push({
+                customerId: customerId,
+                customerName: customerName,
+                message: message,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('newCustomerMessages', JSON.stringify(newMessages));
+            
+            // Check for admin responses periodically
+            checkAdminResponses();
             
             input.value = '';
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
+
+        function getOrCreateCustomerId() {
+            let customerId = localStorage.getItem('customerId');
+            if (!customerId) {
+                customerId = 'customer_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('customerId', customerId);
+            }
+            return customerId;
+        }
+
+        function getCustomerName() {
+            // Try to get name from form if filled
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            
+            if (firstName && lastName) {
+                return `${firstName} ${lastName}`;
+            }
+            
+            // Otherwise use stored name or anonymous
+            const storedName = localStorage.getItem('customerName');
+            if (storedName) {
+                return storedName;
+            }
+            
+            return 'ลูกค้า ' + getOrCreateCustomerId().substr(-6);
+        }
+
+        function checkAdminResponses() {
+            const customerId = getOrCreateCustomerId();
+            const adminResponses = JSON.parse(localStorage.getItem('adminResponses') || '[]');
+            const messagesContainer = document.getElementById('chatMessages');
+            
+            // Filter responses for this customer
+            const myResponses = adminResponses.filter(r => r.customerId === customerId);
+            
+            if (myResponses.length > 0) {
+                // Remove processed responses
+                const remainingResponses = adminResponses.filter(r => r.customerId !== customerId);
+                localStorage.setItem('adminResponses', JSON.stringify(remainingResponses));
+                
+                // Add admin messages
+                myResponses.forEach(response => {
+                    const adminMessage = document.createElement('div');
+                    adminMessage.className = 'message admin-message';
+                    adminMessage.textContent = response.message;
+                    messagesContainer.appendChild(adminMessage);
+                });
+                
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+        }
+
+        // Check for admin responses every 3 seconds
+        setInterval(checkAdminResponses, 3000);
+
+        // Save customer name when form is filled
+        document.getElementById('first-name').addEventListener('blur', function() {
+            const firstName = this.value;
+            const lastName = document.getElementById('last-name').value;
+            if (firstName && lastName) {
+                localStorage.setItem('customerName', `${firstName} ${lastName}`);
+            }
+        });
+
+        document.getElementById('last-name').addEventListener('blur', function() {
+            const firstName = document.getElementById('first-name').value;
+            const lastName = this.value;
+            if (firstName && lastName) {
+                localStorage.setItem('customerName', `${firstName} ${lastName}`);
+            }
+        });
 
         function handleChatKeyPress(event) {
             if (event.key === 'Enter') {
