@@ -405,14 +405,18 @@
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
                             <h3 class="text-lg font-bold mb-2">เสื้อโปโล MJU</h3>
-                            <p class="text-gray-600 text-xs mb-3">เนื้อผ้าเนียนนุ่ม ระบายอากาศดี หน้าปักโลโก้ MJU หลังปักชื่อมหาวิทยาลัยแม่โจ้</p>
+                            <p class="text-gray-600 text-xs mb-2">เนื้อผ้าเนียนนุ่ม ระบายอากาศดี หน้าปักโลโก้ MJU หลังปักชื่อมหาวิทยาลัยแม่โจ้</p>
+                            <p class="text-red-600 text-xs font-semibold mb-3">
+                                <i data-lucide="package" size="14" class="inline-block mr-1"></i>
+                                เหลือในสต็อก: 116 ชิ้น
+                            </p>
                             
                             <!-- Product Options -->
                             <div class="product-options">
                                 <div class="grid grid-cols-1 gap-2 mb-2">
                                     <div>
                                         <label class="block text-xs font-medium text-gray-700 mb-1">สี:</label>
-                                        <select class="option-input w-full text-xs" id="shirt-color" onchange="updateShirtSize()">
+                                        <select class="option-input w-full text-xs" id="shirt-color" onchange="updateShirtSize(); updateShirtStock()">
                                             <option value="">เลือกสี</option>
                                             <option value="น้ำตาลมูสมอคค่า">น้ำตาลมูสมอคค่า</option>
                                             <option value="เทา">เทา</option>
@@ -420,12 +424,12 @@
                                     </div>
                                     <div>
                                         <label class="block text-xs font-medium text-gray-700 mb-1">ขนาด:</label>
-                                        <select class="option-input w-full text-xs" id="shirt-size" disabled>
+                                        <select class="option-input w-full text-xs" id="shirt-size" onchange="updateShirtStock()" disabled>
                                             <option value="">เลือกสีก่อน</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน:</label>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน: <span id="shirt-stock" class="text-green-600 font-semibold"></span></label>
                                         <input type="number" min="1" max="10" value="1" class="option-input w-full text-xs" id="shirt-quantity">
                                     </div>
                                 </div>
@@ -444,14 +448,18 @@
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
                             <h3 class="text-lg font-bold mb-2">กระบอกน้ำเก็บอุณหภูมิ</h3>
-                            <p class="text-gray-600 text-xs mb-3">ขนาด 500ml สแตนเลส 304 เก็บความร้อน-เย็น 10-14 ชั่วโมง</p>
+                            <p class="text-gray-600 text-xs mb-2">ขนาด 500ml สแตนเลส 304 เก็บความร้อน-เย็น 10-14 ชั่วโมง</p>
+                            <p class="text-red-600 text-xs font-semibold mb-3">
+                                <i data-lucide="package" size="14" class="inline-block mr-1"></i>
+                                เหลือในสต็อก: 90 ชิ้น
+                            </p>
                             
                             <!-- Product Options -->
                             <div class="product-options">
                                 <div class="grid grid-cols-1 gap-2 mb-2">
                                     <div>
                                         <label class="block text-xs font-medium text-gray-700 mb-1">สี:</label>
-                                        <select class="option-input w-full text-xs" id="bottle-color">
+                                        <select class="option-input w-full text-xs" id="bottle-color" onchange="updateBottleStock()">
                                             <option value="">เลือกสี</option>
                                             <option value="ขาว">ขาว</option>
                                             <option value="ดำ">ดำ</option>
@@ -460,7 +468,7 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน:</label>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน: <span id="bottle-stock" class="text-green-600 font-semibold"></span></label>
                                         <input type="number" min="1" max="10" value="1" class="option-input w-full text-xs" id="bottle-quantity">
                                     </div>
                                 </div>
@@ -479,14 +487,18 @@
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
                             <h3 class="text-lg font-bold mb-2">กระเป๋าผ้าแคนวาส</h3>
-                            <p class="text-gray-600 text-xs mb-3">พิมพ์ลาย "เรากสิกรรม" ของที่ระลึกฉลองครบรอบ 90 ปี</p>
+                            <p class="text-gray-600 text-xs mb-2">พิมพ์ลาย "เรากสิกรรม" ของที่ระลึกฉลองครบรอบ 90 ปี</p>
+                            <p class="text-red-600 text-xs font-semibold mb-3">
+                                <i data-lucide="package" size="14" class="inline-block mr-1"></i>
+                                เหลือในสต็อก: 100 ชิ้น
+                            </p>
                             
                             <!-- Product Options -->
                             <div class="product-options">
                                 <div class="grid grid-cols-1 gap-2 mb-2">
                                     <div>
                                         <label class="block text-xs font-medium text-gray-700 mb-1">ประเภท:</label>
-                                        <select class="option-input w-full text-xs" id="bag-type">
+                                        <select class="option-input w-full text-xs" id="bag-type" onchange="updateBagStock()">
                                             <option value="">เลือกประเภท</option>
                                             <option value="กระเป๋าผ้า">กระเป๋าผ้า</option>
                                             <option value="เป้สะพายหลัง">เป้สะพายหลัง</option>
@@ -494,7 +506,7 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน:</label>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน: <span id="bag-stock" class="text-green-600 font-semibold"></span></label>
                                         <input type="number" min="1" max="10" value="1" class="option-input w-full text-xs" id="bag-quantity">
                                     </div>
                                 </div>
@@ -513,14 +525,18 @@
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
                             <h3 class="text-lg font-bold mb-2">ร่มพับ 3 ตอนอัตโนมัติ</h3>
-                            <p class="text-gray-600 text-xs mb-3">ขนาด 21 นิ้ว ด้ามเปิด-ปิดออโต้ กันแดด กันฝน พกพาสะดวก</p>
+                            <p class="text-gray-600 text-xs mb-2">ขนาด 21 นิ้ว ด้ามเปิด-ปิดออโต้ กันแดด กันฝน พกพาสะดวก</p>
+                            <p class="text-red-600 text-xs font-semibold mb-3">
+                                <i data-lucide="package" size="14" class="inline-block mr-1"></i>
+                                เหลือในสต็อก: 100 ชิ้น
+                            </p>
                             
                             <!-- Product Options -->
                             <div class="product-options">
                                 <div class="grid grid-cols-1 gap-2 mb-2">
                                     <div>
                                         <label class="block text-xs font-medium text-gray-700 mb-1">สี:</label>
-                                        <select class="option-input w-full text-xs" id="umbrella-color">
+                                        <select class="option-input w-full text-xs" id="umbrella-color" onchange="updateUmbrellaStock()">
                                             <option value="">เลือกสี</option>
                                             <option value="ดำ">ดำ</option>
                                             <option value="น้ำเงิน">น้ำเงิน</option>
@@ -528,7 +544,7 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน:</label>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน: <span id="umbrella-stock" class="text-green-600 font-semibold"></span></label>
                                         <input type="number" min="1" max="10" value="1" class="option-input w-full text-xs" id="umbrella-quantity">
                                     </div>
                                 </div>
@@ -547,14 +563,18 @@
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
                             <h3 class="text-lg font-bold mb-2">ชุดแก้วพิมพ์ลาย</h3>
-                            <p class="text-gray-600 text-xs mb-3">แก้วใสตราสัญลักษณ์ครบรอบ 90 ปี มหาวิทยาลัยแม่โจ้ 1 กล่อง 6 ใบ</p>
+                            <p class="text-gray-600 text-xs mb-2">แก้วใสตราสัญลักษณ์ครบรอบ 90 ปี มหาวิทยาลัยแม่โจ้ 1 กล่อง 6 ใบ</p>
+                            <p class="text-red-600 text-xs font-semibold mb-3">
+                                <i data-lucide="package" size="14" class="inline-block mr-1"></i>
+                                เหลือในสต็อก: 100 ชิ้น
+                            </p>
                             
                             <!-- Product Options -->
                             <div class="product-options">
                                 <div class="grid grid-cols-1 gap-2 mb-2">
                                     <div>
                                         <label class="block text-xs font-medium text-gray-700 mb-1">ประเภท:</label>
-                                        <select class="option-input w-full text-xs" id="glass-type">
+                                        <select class="option-input w-full text-xs" id="glass-type" onchange="updateGlassStock()">
                                             <option value="">เลือกประเภท</option>
                                             <option value="แก้วมัก">แก้วมัก</option>
                                             <option value="แก้วทัมเบลอร์">แก้วทัมเบลอร์</option>
@@ -562,7 +582,7 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน:</label>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน: <span id="glass-stock" class="text-green-600 font-semibold"></span></label>
                                         <input type="number" min="1" max="10" value="1" class="option-input w-full text-xs" id="glass-quantity">
                                     </div>
                                 </div>
@@ -581,21 +601,25 @@
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
                             <h3 class="text-lg font-bold mb-2">เข็มกลัดอก MJU</h3>
-                            <p class="text-gray-600 text-xs mb-3">สีทอง ขนาด 2 x 1 เซนติเมตร สามารถใช้ได้ทุกโอกาส</p>
+                            <p class="text-gray-600 text-xs mb-2">สีทอง ขนาด 2 x 1 เซนติเมตร สามารถใช้ได้ทุกโอกาส</p>
+                            <p class="text-red-600 text-xs font-semibold mb-3">
+                                <i data-lucide="package" size="14" class="inline-block mr-1"></i>
+                                เหลือในสต็อก: 100 ชิ้น
+                            </p>
                             
                             <!-- Product Options -->
                             <div class="product-options">
                                 <div class="grid grid-cols-1 gap-2 mb-2">
                                     <div>
                                         <label class="block text-xs font-medium text-gray-700 mb-1">ขนาด:</label>
-                                        <select class="option-input w-full text-xs" id="pin-size">
+                                        <select class="option-input w-full text-xs" id="pin-size" onchange="updatePinStock()">
                                             <option value="">เลือกขนาด</option>
                                             <option value="2x1 cm">2x1 cm</option>
                                             <option value="3x2 cm">3x2 cm</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน:</label>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน: <span id="pin-stock" class="text-green-600 font-semibold"></span></label>
                                         <input type="number" min="1" max="10" value="1" class="option-input w-full text-xs" id="pin-quantity">
                                     </div>
                                 </div>
@@ -614,14 +638,18 @@
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
                             <h3 class="text-lg font-bold mb-2">หมวกแก๊ป</h3>
-                            <p class="text-gray-600 text-xs mb-3">ของที่ระลึกฉลองครบรอบ 90 ปี ปักโลโก้งานเกษตร สามารถปรับขนาดได้</p>
+                            <p class="text-gray-600 text-xs mb-2">ของที่ระลึกฉลองครบรอบ 90 ปี ปักโลโก้งานเกษตร สามารถปรับขนาดได้</p>
+                            <p class="text-red-600 text-xs font-semibold mb-3">
+                                <i data-lucide="package" size="14" class="inline-block mr-1"></i>
+                                เหลือในสต็อก: 100 ชิ้น
+                            </p>
                             
                             <!-- Product Options -->
                             <div class="product-options">
                                 <div class="grid grid-cols-1 gap-2 mb-2">
                                     <div>
                                         <label class="block text-xs font-medium text-gray-700 mb-1">สี:</label>
-                                        <select class="option-input w-full text-xs" id="hat-color">
+                                        <select class="option-input w-full text-xs" id="hat-color" onchange="updateHatStock()">
                                             <option value="">เลือกสี</option>
                                             <option value="ดำ">ดำ</option>
                                             <option value="น้ำเงิน">น้ำเงิน</option>
@@ -630,7 +658,7 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน:</label>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน: <span id="hat-stock" class="text-green-600 font-semibold"></span></label>
                                         <input type="number" min="1" max="10" value="1" class="option-input w-full text-xs" id="hat-quantity">
                                     </div>
                                 </div>
@@ -649,14 +677,18 @@
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
                             <h3 class="text-lg font-bold mb-2">ชุดเซรามิก ถ้วยชามัทฉะ</h3>
-                            <p class="text-gray-600 text-xs mb-3">MJU Agri-Lover "ฉันรักเกษตร อาหาร สุขภาพ" Food Grade, Microwave Safe</p>
+                            <p class="text-gray-600 text-xs mb-2">MJU Agri-Lover "ฉันรักเกษตร อาหาร สุขภาพ" Food Grade, Microwave Safe</p>
+                            <p class="text-red-600 text-xs font-semibold mb-3">
+                                <i data-lucide="package" size="14" class="inline-block mr-1"></i>
+                                เหลือในสต็อก: 50 ชิ้น
+                            </p>
                             
                             <!-- Product Options -->
                             <div class="product-options">
                                 <div class="grid grid-cols-1 gap-2 mb-2">
                                     <div>
                                         <label class="block text-xs font-medium text-gray-700 mb-1">ประเภท:</label>
-                                        <select class="option-input w-full text-xs" id="ceramic-type">
+                                        <select class="option-input w-full text-xs" id="ceramic-type" onchange="updateCeramicStock()">
                                             <option value="">เลือกประเภท</option>
                                             <option value="ชุดถ้วยชา">ชุดถ้วยชา</option>
                                             <option value="ชุดจานชาม">ชุดจานชาม</option>
@@ -664,7 +696,7 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน:</label>
+                                        <label class="block text-xs font-medium text-gray-700 mb-1">จำนวน: <span id="ceramic-stock" class="text-green-600 font-semibold"></span></label>
                                         <input type="number" min="1" max="5" value="1" class="option-input w-full text-xs" id="ceramic-quantity">
                                     </div>
                                 </div>
@@ -913,6 +945,39 @@
         // Selected products tracking
         let selectedProducts = {};
         let totalPrice = 0;
+        
+        // Stock data for each product variant
+        const stockData = {
+            shirt: {
+                'น้ำตาลมูสมอคค่า': {
+                    'SS': 10, 'S': 15, 'M': 20, 'L': 25, 'XL': 20, '2XL': 15, '4XL': 11
+                },
+                'เทา': {
+                    'SS': 5, 'M': 10, 'L': 15, 'XL': 12, '4XL': 8
+                }
+            },
+            bottle: {
+                'ขาว': 25, 'ดำ': 30, 'เขียว': 20, 'น้ำเงิน': 15
+            },
+            bag: {
+                'กระเป๋าผ้า': 40, 'เป้สะพายหลัง': 35, 'กระเป๋าใส่แล็ปท็อป': 25
+            },
+            umbrella: {
+                'ดำ': 40, 'น้ำเงิน': 35, 'เขียว': 25
+            },
+            glass: {
+                'แก้วมัก': 35, 'แก้วทัมเบลอร์': 40, 'ชุดแก้ว 6 ใบ': 25
+            },
+            pin: {
+                '2x1 cm': 60, '3x2 cm': 40
+            },
+            hat: {
+                'ดำ': 30, 'น้ำเงิน': 25, 'เขียว': 25, 'ขาว': 20
+            },
+            ceramic: {
+                'ชุดถ้วยชา': 20, 'ชุดจานชาม': 15, 'ชุดมัทฉะ': 15
+            }
+        };
 
         // Enhanced product selection function with options
         function selectProductWithOptions(productId, price, name) {
@@ -1428,6 +1493,128 @@
             
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Stock update functions for each product
+        function updateShirtStock() {
+            const color = document.getElementById('shirt-color').value;
+            const size = document.getElementById('shirt-size').value;
+            const stockDisplay = document.getElementById('shirt-stock');
+            const quantityInput = document.getElementById('shirt-quantity');
+            
+            if (color && size && stockData.shirt[color] && stockData.shirt[color][size]) {
+                const stock = stockData.shirt[color][size];
+                stockDisplay.textContent = `เหลือ ${stock} ชิ้น`;
+                stockDisplay.style.color = stock <= 5 ? '#dc2626' : '#059669';
+                quantityInput.max = Math.min(stock, 10);
+            } else {
+                stockDisplay.textContent = '';
+            }
+        }
+        
+        function updateBottleStock() {
+            const color = document.getElementById('bottle-color').value;
+            const stockDisplay = document.getElementById('bottle-stock');
+            const quantityInput = document.getElementById('bottle-quantity');
+            
+            if (color && stockData.bottle[color]) {
+                const stock = stockData.bottle[color];
+                stockDisplay.textContent = `เหลือ ${stock} ชิ้น`;
+                stockDisplay.style.color = stock <= 5 ? '#dc2626' : '#059669';
+                quantityInput.max = Math.min(stock, 10);
+            } else {
+                stockDisplay.textContent = '';
+            }
+        }
+        
+        function updateBagStock() {
+            const type = document.getElementById('bag-type').value;
+            const stockDisplay = document.getElementById('bag-stock');
+            const quantityInput = document.getElementById('bag-quantity');
+            
+            if (type && stockData.bag[type]) {
+                const stock = stockData.bag[type];
+                stockDisplay.textContent = `เหลือ ${stock} ชิ้น`;
+                stockDisplay.style.color = stock <= 5 ? '#dc2626' : '#059669';
+                quantityInput.max = Math.min(stock, 10);
+            } else {
+                stockDisplay.textContent = '';
+            }
+        }
+        
+        function updateUmbrellaStock() {
+            const color = document.getElementById('umbrella-color').value;
+            const stockDisplay = document.getElementById('umbrella-stock');
+            const quantityInput = document.getElementById('umbrella-quantity');
+            
+            if (color && stockData.umbrella[color]) {
+                const stock = stockData.umbrella[color];
+                stockDisplay.textContent = `เหลือ ${stock} ชิ้น`;
+                stockDisplay.style.color = stock <= 5 ? '#dc2626' : '#059669';
+                quantityInput.max = Math.min(stock, 10);
+            } else {
+                stockDisplay.textContent = '';
+            }
+        }
+        
+        function updateGlassStock() {
+            const type = document.getElementById('glass-type').value;
+            const stockDisplay = document.getElementById('glass-stock');
+            const quantityInput = document.getElementById('glass-quantity');
+            
+            if (type && stockData.glass[type]) {
+                const stock = stockData.glass[type];
+                stockDisplay.textContent = `เหลือ ${stock} ชิ้น`;
+                stockDisplay.style.color = stock <= 5 ? '#dc2626' : '#059669';
+                quantityInput.max = Math.min(stock, 10);
+            } else {
+                stockDisplay.textContent = '';
+            }
+        }
+        
+        function updatePinStock() {
+            const size = document.getElementById('pin-size').value;
+            const stockDisplay = document.getElementById('pin-stock');
+            const quantityInput = document.getElementById('pin-quantity');
+            
+            if (size && stockData.pin[size]) {
+                const stock = stockData.pin[size];
+                stockDisplay.textContent = `เหลือ ${stock} ชิ้น`;
+                stockDisplay.style.color = stock <= 5 ? '#dc2626' : '#059669';
+                quantityInput.max = Math.min(stock, 10);
+            } else {
+                stockDisplay.textContent = '';
+            }
+        }
+        
+        function updateHatStock() {
+            const color = document.getElementById('hat-color').value;
+            const stockDisplay = document.getElementById('hat-stock');
+            const quantityInput = document.getElementById('hat-quantity');
+            
+            if (color && stockData.hat[color]) {
+                const stock = stockData.hat[color];
+                stockDisplay.textContent = `เหลือ ${stock} ชิ้น`;
+                stockDisplay.style.color = stock <= 5 ? '#dc2626' : '#059669';
+                quantityInput.max = Math.min(stock, 10);
+            } else {
+                stockDisplay.textContent = '';
+            }
+        }
+        
+        function updateCeramicStock() {
+            const type = document.getElementById('ceramic-type').value;
+            const stockDisplay = document.getElementById('ceramic-stock');
+            const quantityInput = document.getElementById('ceramic-quantity');
+            
+            if (type && stockData.ceramic[type]) {
+                const stock = stockData.ceramic[type];
+                stockDisplay.textContent = `เหลือ ${stock} ชิ้น`;
+                stockDisplay.style.color = stock <= 5 ? '#dc2626' : '#059669';
+                quantityInput.max = Math.min(stock, 5);
+            } else {
+                stockDisplay.textContent = '';
+            }
         }
 
         // Initialize
