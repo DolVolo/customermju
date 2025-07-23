@@ -181,90 +181,9 @@
         .section-header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 30px 20px;
+            padding: 30px;
             border-radius: 20px 20px 0 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .section-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: shimmer 3s infinite;
-        }
-        .section-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(to top, rgba(255,255,255,0.05), transparent);
-        }
-        @keyframes shimmer {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .section-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            padding: 6px 14px;
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-        .section-title {
-            font-size: 1.75rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            letter-spacing: -0.5px;
-            position: relative;
-            z-index: 1;
-        }
-        .section-subtitle {
-            font-size: 0.875rem;
-            opacity: 0.95;
-            font-weight: 400;
-            max-width: 500px;
-            margin: 0 auto;
-            line-height: 1.4;
-            position: relative;
-            z-index: 1;
-        }
-        .decorative-icon {
-            position: absolute;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-        .decorative-icon:nth-child(1) {
-            top: 20px;
-            left: 10%;
-            animation-delay: 0s;
-        }
-        .decorative-icon:nth-child(2) {
-            top: 40px;
-            right: 15%;
-            animation-delay: 2s;
-        }
-        .decorative-icon:nth-child(3) {
-            bottom: 30px;
-            left: 20%;
-            animation-delay: 4s;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
         }
         .modern-input {
             border: 2px solid #e1e5e9;
@@ -326,10 +245,10 @@
                 <div class="flex items-center space-x-2">
                     <img src="https://upload.wikimedia.org/wikipedia/th/thumb/b/b7/MJU_LOGO.svg/1200px-MJU_LOGO.svg.png" 
                          alt="Maejo University" 
-                         class="h-10 sm:h-12" />
-                    <div class="flex flex-col">
-                        <span class="font-bold text-sm sm:text-lg">ร้านค้าขายของที่ระลึก 30 ปี</span>
-                        <span class="text-xs sm:text-sm" style="color: #DCDD27;">มหาวิทยาลัยแม่โจ้</span>
+                         class="h-12" />
+                    <div class="hidden md:flex flex-col">
+                        <span class="font-bold text-lg">ร้านค้าขายของที่ระลึก 30 ปี</span>
+                        <span class="text-sm" style="color: #DCDD27;">มหาวิทยาลัยแม่โจ้</span>
                     </div>
                 </div>
 
@@ -381,47 +300,39 @@
             <!-- Product Selection Section - Tesla Style -->
             <section id="products" class="glass-effect rounded-3xl shadow-2xl overflow-hidden">
                 <div class="section-header">
-                    <i data-lucide="sparkles" size="30" class="decorative-icon"></i>
-                    <i data-lucide="gift" size="25" class="decorative-icon"></i>
-                    <i data-lucide="star" size="20" class="decorative-icon"></i>
-                    
-                    <div class="section-badge">
-                        <i data-lucide="award" size="14"></i>
-                        <span>LIMITED EDITION</span>
-                    </div>
-                    
-                    <h2 class="section-title">เลือกสินค้าของที่ระลึก</h2>
-                    <p class="section-subtitle">ฉลองครบรอบ 90 ปี มหาวิทยาลัยแม่โจ้ - คอลเลกชันพิเศษที่ออกแบบมาเพื่อเป็นที่ระลึกในโอกาสสำคัญนี้</p>
+                    <h2 class="text-3xl font-bold mb-2">เลือกสินค้าของที่ระลึก</h2>
+                    <p class="text-lg opacity-90">ฉลองครบรอบ 90 ปี มหาวิทยาลัยแม่โจ้</p>
                 </div>
                 
                 <div class="p-8">
                     <!-- Products Grid -->
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                         
-                        <!-- เสื้อโปโล -->
+                        <!-- เสื้อเหลือง -->
                         <div class="product-card rounded-3xl p-4 group" data-product="shirt" data-price="350">
                             <div class="product-image mb-4 relative overflow-hidden rounded-2xl">
-                                <img src="img/poloshirt.jpeg" alt="เสื้อโปโล MJU" id="shirt-image">
+                                <img src="img/เสื้อเหลืองประดับตราสัญลักษณ์เฉลิมพระเกียรติ.jpeg" alt="เสื้อเหลือง">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
-                            <h3 class="text-lg font-bold mb-2">เสื้อโปโล MJU</h3>
-                            <p class="text-gray-600 text-xs mb-3">เนื้อผ้าเนียนนุ่ม ระบายอากาศดี หน้าปักโลโก้ MJU หลังปักชื่อมหาวิทยาลัยแม่โจ้</p>
+                            <h3 class="text-lg font-bold mb-2">เสื้อเหลืองประดับตราสัญลักษณ์</h3>
+                            <p class="text-gray-600 text-xs mb-3">เฉลิมพระเกียรติ ๗๒ พรรษา แขนเสื้อด้านขวาปัก MAEJO UNIVERSITY</p>
                             
                             <!-- Product Options -->
                             <div class="product-options">
                                 <div class="grid grid-cols-1 gap-2 mb-2">
                                     <div>
-                                        <label class="block text-xs font-medium text-gray-700 mb-1">สี:</label>
-                                        <select class="option-input w-full text-xs" id="shirt-color" onchange="updateShirtSize()">
-                                            <option value="">เลือกสี</option>
-                                            <option value="น้ำตาลมูสมอคค่า">น้ำตาลมูสมอคค่า</option>
-                                            <option value="เทา">เทา</option>
-                                        </select>
-                                    </div>
-                                    <div>
                                         <label class="block text-xs font-medium text-gray-700 mb-1">ขนาด:</label>
-                                        <select class="option-input w-full text-xs" id="shirt-size" disabled>
-                                            <option value="">เลือกสีก่อน</option>
+                                        <select class="option-input w-full text-xs" id="shirt-size">
+                                            <option value="">เลือกขนาด</option>
+                                            <option value="SS">SS</option>
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L">L</option>
+                                            <option value="XL">XL</option>
+                                            <option value="XXL">XXL</option>
+                                            <option value="3XL">3XL</option>
+                                            <option value="4XL">4XL</option>
+                                            <option value="5XL">5XL</option>
                                         </select>
                                     </div>
                                     <div>
@@ -429,11 +340,18 @@
                                         <input type="number" min="1" max="10" value="1" class="option-input w-full text-xs" id="shirt-quantity">
                                     </div>
                                 </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700 mb-1">สี:</label>
+                                    <label class="flex items-center">
+                                        <input type="radio" name="shirt-color" value="เหลือง" class="mr-2" checked>
+                                        <span class="text-xs">เหลือง</span>
+                                    </label>
+                                </div>
                             </div>
                             
                             <div class="flex justify-between items-center">
                                 <span class="price-tag text-xs">350 บาท</span>
-                                <button type="button" class="tesla-button text-xs px-3 py-2" onclick="selectProductWithOptions('shirt', 350, 'เสื้อโปโล MJU')">เลือกสินค้า</button>
+                                <button type="button" class="tesla-button text-xs px-3 py-2" onclick="selectProductWithOptions('shirt', 350, 'เสื้อเหลืองประดับตราสัญลักษณ์')">เลือกสินค้า</button>
                             </div>
                         </div>
 
@@ -697,17 +615,8 @@
             <!-- Customer Details Section -->
             <section id="order" class="glass-effect rounded-3xl shadow-2xl overflow-hidden">
                 <div class="section-header">
-                    <i data-lucide="user-circle" size="60" class="decorative-icon"></i>
-                    <i data-lucide="mail" size="50" class="decorative-icon"></i>
-                    <i data-lucide="map-pin" size="40" class="decorative-icon"></i>
-                    
-                    <div class="section-badge">
-                        <i data-lucide="shield-check" size="16"></i>
-                        <span>ข้อมูลปลอดภัย</span>
-                    </div>
-                    
-                    <h2 class="section-title">ข้อมูลลูกค้า</h2>
-                    <p class="section-subtitle">กรุณากรอกข้อมูลสำหรับการจัดส่งและติดต่อ - ข้อมูลของคุณจะถูกเก็บเป็นความลับและใช้เพื่อการจัดส่งเท่านั้น</p>
+                    <h2 class="text-3xl font-bold mb-2">ข้อมูลลูกค้า</h2>
+                    <p class="text-lg opacity-90">กรุณากรอกข้อมูลสำหรับการจัดส่งและติดต่อ</p>
                 </div>
                 
                 <div class="p-8">
@@ -739,17 +648,8 @@
             <!-- Delivery and Payment Section -->
             <section class="glass-effect rounded-3xl shadow-2xl overflow-hidden">
                 <div class="section-header">
-                    <i data-lucide="truck" size="60" class="decorative-icon"></i>
-                    <i data-lucide="wallet" size="50" class="decorative-icon"></i>
-                    <i data-lucide="receipt" size="40" class="decorative-icon"></i>
-                    
-                    <div class="section-badge">
-                        <i data-lucide="zap" size="16"></i>
-                        <span>จัดส่งรวดเร็ว</span>
-                    </div>
-                    
-                    <h2 class="section-title">การจัดส่งและชำระเงิน</h2>
-                    <p class="section-subtitle">เลือกวิธีการรับสินค้าและชำระเงินที่สะดวกสำหรับคุณ - รับประกันความปลอดภัยในทุกขั้นตอน</p>
+                    <h2 class="text-3xl font-bold mb-2">การจัดส่งและชำระเงิน</h2>
+                    <p class="text-lg opacity-90">เลือกวิธีการรับสินค้าและชำระเงิน</p>
                 </div>
                 
                 <div class="p-8">
@@ -823,8 +723,8 @@
                             <div id="imagePreview" class="hidden">
                                 <img id="previewImg" src="" alt="Preview" class="max-w-full max-h-64 mx-auto rounded-lg mb-4">
                                 <div class="text-white mb-2" id="fileName"></div>
-                                <button type="button" onclick="removeImage()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition flex items-center justify-center">
-                                    <i data-lucide="trash-2" size="16" class="inline-block mr-2"></i>
+                                <button type="button" onclick="removeImage()" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition">
+                                    <i data-lucide="trash-2" size="16" class="mr-2"></i>
                                     ลบรูปภาพ
                                 </button>
                             </div>
@@ -843,7 +743,7 @@
                             <i data-lucide="check" size="20" class="mr-2"></i>
                             ส่งคำสั่งซื้อ
                         </button>
-                        <button type="button" onclick="resetForm()" class="bg-white/20 text-white px-8 py-3 rounded-full font-bold hover:bg-white/30 transition flex items-center justify-center border border-white/30">
+                        <button type="reset" class="bg-white/20 text-white px-8 py-3 rounded-full font-bold hover:bg-white/30 transition flex items-center justify-center border border-white/30">
                             <i data-lucide="refresh-cw" size="20" class="mr-2"></i>
                             ล้างข้อมูล
                         </button>
@@ -947,44 +847,6 @@
             updateSelectedProducts();
         }
 
-        // Update shirt size options based on selected color
-        function updateShirtSize() {
-            const colorSelect = document.getElementById('shirt-color');
-            const sizeSelect = document.getElementById('shirt-size');
-            const selectedColor = colorSelect.value;
-            
-            // Clear current options
-            sizeSelect.innerHTML = '';
-            
-            if (!selectedColor) {
-                sizeSelect.innerHTML = '<option value="">เลือกสีก่อน</option>';
-                sizeSelect.disabled = true;
-                return;
-            }
-            
-            sizeSelect.disabled = false;
-            sizeSelect.innerHTML = '<option value="">เลือกขนาด</option>';
-            
-            // Add size options based on color
-            if (selectedColor === 'น้ำตาลมูสมอคค่า') {
-                const sizes = ['SS', 'S', 'M', 'L', 'XL', '2XL', '4XL'];
-                sizes.forEach(size => {
-                    const option = document.createElement('option');
-                    option.value = size;
-                    option.textContent = size;
-                    sizeSelect.appendChild(option);
-                });
-            } else if (selectedColor === 'เทา') {
-                const sizes = ['SS', 'M', 'L', 'XL', '4XL'];
-                sizes.forEach(size => {
-                    const option = document.createElement('option');
-                    option.value = size;
-                    option.textContent = size;
-                    sizeSelect.appendChild(option);
-                });
-            }
-        }
-
         // Get product options based on product type
         function getProductOptions(productId) {
             const options = {};
@@ -992,7 +854,7 @@
             switch(productId) {
                 case 'shirt':
                     options.size = document.getElementById('shirt-size').value;
-                    options.color = document.getElementById('shirt-color').value;
+                    options.color = document.querySelector('input[name="shirt-color"]:checked')?.value;
                     options.quantity = parseInt(document.getElementById('shirt-quantity').value) || 1;
                     break;
                 case 'bottle':
@@ -1291,16 +1153,6 @@
                     card.querySelector('button').textContent = 'เลือกสินค้า';
                 });
                 
-                // Reset all product options
-                document.getElementById('shirt-color').value = '';
-                document.getElementById('shirt-size').value = '';
-                document.getElementById('shirt-size').disabled = true;
-                document.getElementById('shirt-size').innerHTML = '<option value="">เลือกสีก่อน</option>';
-                document.getElementById('shirt-quantity').value = '1';
-                
-                // Remove uploaded slip image
-                removeImage();
-                
                 // Reset date
                 document.getElementById('purchase-date').valueAsDate = new Date();
                 
@@ -1308,126 +1160,6 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 
             }, 2000);
-        }
-
-        // Image upload functionality
-        function handleFileUpload(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            
-            // Validate file type
-            const validTypes = ['image/jpeg', 'image/jpg', 'image/png'];
-            if (!validTypes.includes(file.type)) {
-                alert('กรุณาอัพโหลดไฟล์รูปภาพ JPG หรือ PNG เท่านั้น');
-                event.target.value = '';
-                return;
-            }
-            
-            // Validate file size (5MB)
-            const maxSize = 5 * 1024 * 1024; // 5MB in bytes
-            if (file.size > maxSize) {
-                alert('ขนาดไฟล์ต้องไม่เกิน 5MB');
-                event.target.value = '';
-                return;
-            }
-            
-            // Read and display the image
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                // Hide upload label and show preview
-                document.getElementById('uploadLabel').classList.add('hidden');
-                document.getElementById('imagePreview').classList.remove('hidden');
-                
-                // Set image source and file name
-                document.getElementById('previewImg').src = e.target.result;
-                document.getElementById('fileName').textContent = file.name;
-                
-                // Update upload area style
-                document.getElementById('uploadArea').classList.add('bg-white/10');
-            };
-            
-            reader.readAsDataURL(file);
-        }
-        
-        // Remove uploaded image
-        function removeImage() {
-            // Clear file input
-            document.getElementById('slip').value = '';
-            
-            // Show upload label and hide preview
-            document.getElementById('uploadLabel').classList.remove('hidden');
-            document.getElementById('imagePreview').classList.add('hidden');
-            
-            // Clear preview image
-            document.getElementById('previewImg').src = '';
-            document.getElementById('fileName').textContent = '';
-            
-            // Reset upload area style
-            document.getElementById('uploadArea').classList.remove('bg-white/10');
-        }
-
-        // Reset form function
-        function resetForm() {
-            // Get the form element
-            const form = document.querySelector('form');
-            
-            // Reset the form fields
-            form.reset();
-            
-            // Clear selected products (basket)
-            selectedProducts = {};
-            updateSelectedProducts();
-            
-            // Reset all product cards
-            document.querySelectorAll('.product-card').forEach(card => {
-                card.classList.remove('selected-product');
-                card.querySelector('button').textContent = 'เลือกสินค้า';
-            });
-            
-            // Reset all product options to default
-            // Reset shirt options
-            document.getElementById('shirt-color').value = '';
-            document.getElementById('shirt-size').value = '';
-            document.getElementById('shirt-size').disabled = true;
-            document.getElementById('shirt-size').innerHTML = '<option value="">เลือกสีก่อน</option>';
-            document.getElementById('shirt-quantity').value = '1';
-            
-            // Reset bottle options
-            document.getElementById('bottle-color').value = '';
-            document.getElementById('bottle-quantity').value = '1';
-            
-            // Reset bag options
-            document.getElementById('bag-type').value = '';
-            document.getElementById('bag-quantity').value = '1';
-            
-            // Reset umbrella options
-            document.getElementById('umbrella-color').value = '';
-            document.getElementById('umbrella-quantity').value = '1';
-            
-            // Reset glass options
-            document.getElementById('glass-type').value = '';
-            document.getElementById('glass-quantity').value = '1';
-            
-            // Reset pin options
-            document.getElementById('pin-size').value = '';
-            document.getElementById('pin-quantity').value = '1';
-            
-            // Reset hat options
-            document.getElementById('hat-color').value = '';
-            document.getElementById('hat-quantity').value = '1';
-            
-            // Reset ceramic options
-            document.getElementById('ceramic-type').value = '';
-            document.getElementById('ceramic-quantity').value = '1';
-            
-            // Remove uploaded image
-            removeImage();
-            
-            // Reset date to today
-            document.getElementById('purchase-date').valueAsDate = new Date();
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Initialize
